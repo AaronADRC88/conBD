@@ -1,13 +1,20 @@
 __author__ = 'aferreiradominguez'
 import sqlite3 as dbapi
+
 #version api
 print(dbapi.apilevel)
 #0-3 nivel seguridade do modulo para usar fios
 print(dbapi.threadsafety)
 #Indica sintaxe para a insercion de param
 print(dbapi.paramstyle)
-
-bbdd=dbapi.connect("basedatos.dat")
+try:
+    bbdd=dbapi.connect("basedatos.dat")
+except (InterfaceError,dbapi.DatabaseError):
+    print("Error de connexion")
+else:
+    print("conn success")
+finally:
+    print("progreso de conn BD finalizado")
 
 print(bbdd)
 
